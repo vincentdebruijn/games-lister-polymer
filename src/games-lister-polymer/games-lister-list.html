@@ -1,0 +1,25 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="games-lister-item.html">
+
+<dom-module id="games-lister-list">
+
+  <template>
+    <template is="dom-repeat" items="[[data]]">
+      <games-lister-item data="[[item]]"></games-lister-item>
+    </template>
+  </template>
+
+  <script>
+
+    Polymer({
+      is: 'games-lister-list',
+
+      ready: function() {
+        this.style.display = 'block';
+      }
+
+    });
+
+  </script>
+
+</dom-module>

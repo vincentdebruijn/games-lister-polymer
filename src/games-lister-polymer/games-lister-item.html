@@ -3,10 +3,11 @@
 <dom-module id="games-lister-item">
 
   <template>
-    <div random-letter>[[data.random_letter]]</div>
-      <div random-string1>[[data.random_string1]]</div>
-      <p random-string2>[[data.random_string2]]</p>
-      <p random-string3>[[data.random_string3]]</p>
+    <div games-list-item>
+      <div reviews-count>[[data.reviews_count]]</div>
+      <div game-name>[[data.name]]</div>
+      <p game-description>[[data.description]]</p>
+      <p release-date>Release date: [[data.release_date]]</p>
     </div>
 
     <style>
@@ -15,7 +16,7 @@
         margin: '24px';
         boxShadow: '0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2)';
       }
-      div[random-letter] {
+      div[reviews-count] {
         display: inline-block; 
         height: 64px; 
         width: 64px; 
@@ -26,15 +27,15 @@
         color: #555; 
         text-align: center;
       }
-      div[random-string1] {
+      div[game-name] {
         font-size: 22px; 
         margin: 16px 0; 
         color: #212121;
       }
-      div[random-string2] {
+      div[game-description] {
         font-size: 16px;
       }
-      div[random-string3] {
+      div[release-date] {
         font-size: 14px;
       }
     </style>
@@ -50,11 +51,8 @@
        data: {
         type: Object
        }
-
-      },
-
-      ready: function() {
-      },
+       
+      }
 
     });
 

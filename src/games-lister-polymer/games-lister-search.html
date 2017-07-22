@@ -1,0 +1,76 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="games-lister-search">
+
+  <template>
+    <div search>
+      <input search-field></input>
+    	<button search-button>Search</button>
+    </div>
+
+  	<style>
+      div[search] {
+        float: right;
+      }
+    </style>
+  </template>
+
+    <script>
+
+    Polymer({
+      is: 'games-lister-search',
+
+      properties: {
+
+        developer: {
+          type: String,
+          notify: true
+        },
+
+        data: {
+          type: Object,
+          notify: true
+        }
+       
+      },
+
+      ready: function () {
+        this.developer = "VinLia Games";
+        this._loadData();
+      },
+
+      _loadData: function () {
+     /*   fetch('/api/game_list/' + encodeURIComponent(developer))
+          .then(function (res) {
+            return res.json();
+          })
+          .then(function (data) {
+            this.set('data', data);
+          }.bind(this))*/
+        this.set('data', this._loadDummyData());
+      }, 
+
+      _loadDummyData: function () {
+        return [
+          {
+            name: 'Eye in the Sky',
+            description: 'Eye in the Sky is an asymmetrical local co-op escape room where a VR player and a Computer player solve puzzles from different perspectives. The goal is to share information from each perspective and overcome the obstacles on a journey to the center of a post-apocalyptic robot planet.',
+            platform: 'Steam',
+            release_date: '2017-04-29',
+            reviews_count: 8
+          },
+          {
+            name: 'Streetblox',
+            description: 'StreetBlox is a little game about a sliding puzzle with roads on it. Keep placing roads in front of your car and try to reach the exit!\n\nThere are 40 puzzles waiting to be solved, spread over 3 different worlds with their own unique puzzle pieces - like beacons, bridges and portals!',
+            platform: 'Google Play',
+            release_date: '2016-05-01',
+            reviews_count: 5
+          }
+        ]
+      }
+
+    });
+
+  </script>
+
+</dom-module>
