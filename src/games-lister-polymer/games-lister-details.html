@@ -1,0 +1,72 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="games-lister-details">
+
+  <template>
+
+    <app-route
+        route="{{route}}"
+        pattern="/:game"
+        data="{{routeData}}"></app-route>
+
+    <div games-list-item-details>
+      <div game-name>Details for: <span>[[routeData.game]]</span></div>
+      <img src="[[data.pic]]"></img>
+    </div>
+
+    <style>
+      div[games-list-item-details] {
+        padding: '16px';
+        margin: '24px';
+        boxShadow: '0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2)';
+      }
+      div[game-name] {
+        font-size: 32px; 
+        margin: 16px 0; 
+        color: #212121;
+      }
+      div[release-date] {
+        font-size: 12px;
+      }
+      div[game-description] {
+        font-size: 16px;
+      }
+    </style>
+  </template>
+
+  <script>
+
+    Polymer({
+      is: 'games-lister-details',
+
+      properties: {
+
+       data: {
+        type: Object
+       }
+       
+      },
+      
+      ready: function() {
+   /*   fetch('/api/details/' + encodeURIComponent(routeData.game))
+          .then(function (res) {
+            return res.json();
+          })
+          .then(function (data) {
+            this.set('data', data);
+          }.bind(this))*/
+        this.set('data', this._loadDummyData());
+      },
+
+      _loadDummyData: function() {
+        return {
+          pic: 'http://cdn.akamai.steamstatic.com/steam/apps/566700/header.jpg'
+        }
+      }
+
+    });
+
+
+  </script>
+
+</dom-module>
