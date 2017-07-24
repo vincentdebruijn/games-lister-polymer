@@ -4,13 +4,14 @@
 
   <template>
     <div search>
-      <input search-field></input>
-    	<button search-button>Search</button>
+      <p>Search games from developer</p>
+      <input type="text" maxlength="30" value="{{value::change}}">
+  	  <button on-click="_search">Go</button>
     </div>
 
   	<style>
       div[search] {
-        float: right;
+        text-align: center;
       }
     </style>
   </template>
@@ -30,6 +31,10 @@
         data: {
           type: Array,
           notify: true
+        },
+
+        value: {
+          type: String
         }
        
       },
@@ -40,7 +45,7 @@
       },
 
       _loadData: function () {
-     /*   fetch('/api/game_list/' + encodeURIComponent(developer))
+     /*   fetch('/api/game_list/' + encodeURIComponent(this.developer))
           .then(function (res) {
             return res.json();
           })
@@ -49,6 +54,12 @@
           }.bind(this))*/
         this.set('data', this._loadDummyData());
       }, 
+
+      _search: function() {
+        this.developer = this.value;
+        this._loadData();
+        this.set('route.path', '/list');
+      },
 
       _loadDummyData: function () {
         return [

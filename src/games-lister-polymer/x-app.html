@@ -41,6 +41,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       <app-drawer slot="drawer">
         <app-toolbar>Games Lister</app-toolbar>
+        <games-lister-search developer="{{developer}}" data="{{data}}" route="{{route}}"></games-lister-search>
       </app-drawer>
 
       <app-header-layout>
@@ -49,15 +50,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <app-toolbar>
             <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
             <div main-title>
-              <games-lister-search developer="{{developer}}" data="{{data}}"></games-lister-search>
-              Results for: <span>[[developer]]</span>
+              <iron-pages selected="[[routeData.view]]" attr-for-selected="route-name">
+                <div route-name="list">Results for: <span>[[developer]]</span></div>
+                <div route-name="details">Details for: <span>[[game]]</span></div>
+              </iron-pages>
             </div>
           </app-toolbar>
         </app-header>
 
-        <iron-pages selected="[[routeData.view]]" attr-for-selected="name">
-          <games-lister-list name="list" data="[[data]]"></games-lister-list>
-          <games-lister-details name="details" route="{{subroute}}"></game-lister-details>
+        <iron-pages selected="[[routeData.view]]" attr-for-selected="route-name">
+          <games-lister-list route-name="list" data="[[data]]" route="{{route}}"></games-lister-list>
+          <games-lister-details route-name="details" game="{{game}}" route="{{subroute}}"></game-lister-details>
         </iron-pages>
 
       </app-header-layout>
