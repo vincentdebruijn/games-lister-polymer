@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>games-lister-item tests</title>
+
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="../../web-component-tester/browser.js"></script>
+  <script src="../../test-fixture/test-fixture-mocha.js"></script>
+  <link rel="import" href="../../iron-test-helpers/mock-interactions.js">
+
+  <link rel="import" href="../../polymer/polymer.html">
+  <link rel="import" href="../../iron-test-helpers/iron-test-helpers.html">
+  <link rel="import" href="../../test-fixture/test-fixture.html">
+
+  <link rel="import" href="../../../src/games-lister-polymer/games-lister-item.html">
+</head>
+<body>
+  <test-fixture id="games-lister-item-fixture">
+    <template is="dom-template">
+      <games-lister-item></games-lister-item>
+    </template>
+  </test-fixture>
+
+  <script>
+
+    describe('<games-lister-item>', function () {
+      var describedComponent;
+      var route = {path: ''};
+      var data = {name: 'name'};
+
+      beforeEach(function() {
+        describedComponent = fixture('games-lister-item-fixture')
+        describedComponent.data = data;
+        describedComponent.route = route;
+      });
+
+      // https://github.com/PolymerElements/test-fixture/issues/47
+      it('navigates to the details view of the item when clicked', function () {
+        MockInteractions.tap(describedComponent);
+        assert.equal(route.path, '/details/name');
+      });
+    });
+
+  </script>
+</body>
+</html>
