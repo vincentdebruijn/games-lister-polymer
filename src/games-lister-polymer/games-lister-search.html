@@ -3,14 +3,14 @@
 <dom-module id="games-lister-search">
 
   <template>
-    <div search>
+    <div id="search">
       <p>Search games from developer</p>
       <input type="text" maxlength="30" value="{{value::change}}">
   	  <button on-click="_search">Go</button>
     </div>
 
   	<style>
-      div[search] {
+      #search {
         text-align: center;
       }
     </style>
