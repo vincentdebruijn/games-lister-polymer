@@ -1,26 +1,26 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
-<dom-module id="games-lister-item">
+<dom-module id="gamelister-item">
 
   <template>
-    <div class="games-list-item">
+    <div class="item">
       <div class="reviews-count">[[data.reviews_count]]</div>
-      <div class="game-name">[[data.name]]</div>
-      <p class="game-description">[[data.description]]</p>
+      <div class="name">[[data.name]]</div>
+      <p class="description">[[data.description]]</p>
       <p class="release-date">Release date: [[data.release_date]]</p>
     </div>
 
     <style>
-      .games-list-item {
+      :host .item {
         padding: 16px;
         margin: 24px;
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 
       }
-      .games-list-item:hover {
+      :host .item:hover {
         cursor: pointer;
       }
-      .reviews-count {
+      :host .reviews-count {
         display: inline-block; 
         height: 64px; 
         width: 64px; 
@@ -31,15 +31,15 @@
         color: #555; 
         text-align: center;
       }
-      .game-name {
+      :host .game-name {
         font-size: 22px; 
         margin: 16px 0; 
         color: #212121;
       }
-      .game-description {
+      :host .game-description {
         font-size: 16px;
       }
-      .release-date {
+      :host .release-date {
         font-size: 14px;
       }
     </style>
@@ -48,7 +48,7 @@
   <script>
 
     Polymer({
-      is: 'games-lister-item',
+      is: 'gamelister-item',
 
       properties: {
 
@@ -67,7 +67,6 @@
       },
 
       _showDetails: function(e) {
-        console.log(this.data);
         this.set('route.path', '/details/' + encodeURIComponent(this.data.name));
       }
 

@@ -1,18 +1,18 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="games-lister-item.html">
+<link rel="import" href="gamelister-item.html">
 
-<dom-module id="games-lister-list">
+<dom-module id="gamelister-list">
 
   <template>
     <template is="dom-repeat" items="[[data]]">
-      <games-lister-item data="[[item]]" route="{{route}}"></games-lister-item>
+      <gamelister-item data="[[item]]" route="{{route}}"></gamelister-item>
     </template>
   </template>
 
   <script>
 
     Polymer({
-      is: 'games-lister-list',
+      is: 'gamelister-list',
 
       ready: function() {
         this.style.display = 'block';

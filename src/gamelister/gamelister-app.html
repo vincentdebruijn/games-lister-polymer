@@ -22,11 +22,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../../bower_components/iron-selector/iron-selector.html">
 
-<link rel="import" href="games-lister-search.html">
-<link rel="import" href="games-lister-list.html">
-<link rel="import" href="games-lister-details.html">
+<link rel="import" href="gamelister-search.html">
+<link rel="import" href="gamelister-list.html">
+<link rel="import" href="gamelister-details.html">
 
-<dom-module id="x-app">
+<dom-module id="gamelister-app">
 
   <template>
 
@@ -41,7 +41,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       <app-drawer slot="drawer">
         <app-toolbar>Games Lister</app-toolbar>
-        <games-lister-search developer="{{developer}}" data="{{data}}" route="{{route}}"></games-lister-search>
+        <gamelister-search developer="{{developer}}" data="{{data}}" route="{{route}}"></gamelister-search>
       </app-drawer>
 
       <app-header-layout>
@@ -59,8 +59,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </app-header>
 
         <iron-pages selected="[[routeData.view]]" attr-for-selected="route-name">
-          <games-lister-list route-name="list" data="[[data]]" route="{{route}}"></games-lister-list>
-          <games-lister-details route-name="details" game="{{game}}" route="{{subroute}}"></game-lister-details>
+          <gamelister-list route-name="list" data="[[data]]" route="{{route}}"></gamelister-list>
+          <gamelister-details route-name="details" game="{{game}}" route="{{subroute}}"></gamelister-details>
         </iron-pages>
 
       </app-header-layout>
@@ -91,7 +91,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     Polymer({
 
-      is: 'x-app'
+      is: 'gamelister-app'
 
     });
 

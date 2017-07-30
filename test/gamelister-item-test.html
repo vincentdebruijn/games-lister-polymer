@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-  <title>games-lister-item tests</title>
+  <title>gamelister-item tests</title>
 
   <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
   <script src="../../web-component-tester/browser.js"></script>
@@ -14,24 +14,24 @@
   <link rel="import" href="../../iron-test-helpers/iron-test-helpers.html">
   <link rel="import" href="../../test-fixture/test-fixture.html">
 
-  <link rel="import" href="../../../src/games-lister-polymer/games-lister-item.html">
+  <link rel="import" href="../../../src/gamelister/gamelister-item.html">
 </head>
 <body>
-  <test-fixture id="games-lister-item-fixture">
+  <test-fixture id="gamelister-item-fixture">
     <template is="dom-template">
-      <games-lister-item></games-lister-item>
+      <gamelister-item></gamelister-item>
     </template>
   </test-fixture>
 
   <script>
 
-    describe('<games-lister-item>', function () {
+    describe('<gamelister-item>', function () {
       var describedComponent;
       var route = {path: ''};
       var data = {name: 'name'};
 
       beforeEach(function() {
-        describedComponent = fixture('games-lister-item-fixture')
+        describedComponent = fixture('gamelister-item-fixture')
         describedComponent.data = data;
         describedComponent.route = route;
       });
