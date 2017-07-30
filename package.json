@@ -1,0 +1,15 @@
+{
+  "name": "gamelister",
+  "version": "0.0.1",
+  "main": "index.html",
+  "license": "MIT",
+  "dependencies": {
+    "bower": "^1.8.0"
+  },
+  "scripts": {
+    "start": "polymer serve",
+    "test": "wct",
+    "postinstall": "bower install"
+  },
+  "flat": true
+}
