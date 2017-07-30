@@ -1,6 +1,8 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../../bower_components/app-layout/app-header-layout/app-header-layout.html">
 
-<dom-module id="gamelister-details">
+<dom-module id="gamelister-details-page">
 
   <template>
 
@@ -9,12 +11,28 @@
         pattern="/:game"
         data="{{routeData}}"></app-route>
 
-    <div>
-      <img src="[[data.pic]]"></img>
-    </div>
-    <a href="/list">Back</a>
+    <app-header slot="header" reveals effects="waterfall">
+      <app-toolbar>
+        <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
+        <div main-title>
+          <div>Details for: <span>[[game]]</span></div>
+        </div>
+      </app-toolbar>
+    </app-header>
+
+    <app-header-layout>
+      <div>
+        <img src="[[data.pic]]"></img>
+      </div>
+      <a href="/list">Back</a>
+    </app-header-layout>
 
     <style>
+      app-header {
+        background-color: #00897B;
+        color: #fff;
+      }
+
       :host img {
         margin: 10px;
       }
@@ -25,7 +43,7 @@
   <script>
 
     Polymer({
-      is: 'gamelister-details',
+      is: 'gamelister-details-page',
 
       properties: {
 
