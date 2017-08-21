@@ -17,71 +17,72 @@
   </template>
 
   <script>
+class GamelisterSearch extends Polymer.Element {
+  static get is() {
+    return 'gamelister-search';
+  }
 
-    Polymer({
-      is: 'gamelister-search',
-
-      properties: {
-
-        developer: {
-          type: String,
-          notify: true
-        },
-
-        data: {
-          type: Array,
-          notify: true
-        },
-
-        value: {
-          type: String
-        }
-       
+  static get properties() {
+    return {
+      developer: {
+        type: String,
+        notify: true
       },
-
-      ready: function () {
-        this.developer = "VinLia Games";
-        this._loadData();
+      data: {
+        type: Array,
+        notify: true
       },
+      value: {
+        type: String
+      }
+    };
+  }
 
-      _loadData: function () {
-     /*   fetch('/api/game_list/' + encodeURIComponent(this.developer))
+  ready() {
+    super.ready();
+    this.developer = 'VinLia Games';
+    this._loadData();
+  }
+
+  _loadData() {
+    /*   fetch('/api/game_list/' + encodeURIComponent(this.developer))
           .then(function (res) {
             return res.json();
           })
           .then(function (data) {
             this.set('data', data);
           }.bind(this))*/
-        this.set('data', this._loadDummyData());
-      }, 
+    this.set('data', this._loadDummyData());
+  }
 
-      _search: function() {
-        this.developer = this.value;
-        this._loadData();
-        this.set('route.path', '/list');
+  _search() {
+    this.developer = this.value;
+    this._loadData();
+    this.set('route.path', '/list');
+  }
+
+  _loadDummyData() {
+    return [
+      {
+        name: 'Eye in the Sky',
+        description:
+          'Eye in the Sky is an asymmetrical local co-op escape room where a VR player and a Computer player solve puzzles from different perspectives. The goal is to share information from each perspective and overcome the obstacles on a journey to the center of a post-apocalyptic robot planet.',
+        platform: 'Steam',
+        release_date: '2017-04-29',
+        reviews_count: 8
       },
-
-      _loadDummyData: function () {
-        return [
-          {
-            name: 'Eye in the Sky',
-            description: 'Eye in the Sky is an asymmetrical local co-op escape room where a VR player and a Computer player solve puzzles from different perspectives. The goal is to share information from each perspective and overcome the obstacles on a journey to the center of a post-apocalyptic robot planet.',
-            platform: 'Steam',
-            release_date: '2017-04-29',
-            reviews_count: 8
-          },
-          {
-            name: 'Streetblox',
-            description: 'StreetBlox is a little game about a sliding puzzle with roads on it. Keep placing roads in front of your car and try to reach the exit!\n\nThere are 40 puzzles waiting to be solved, spread over 3 different worlds with their own unique puzzle pieces - like beacons, bridges and portals!',
-            platform: 'Google Play',
-            release_date: '2016-05-01',
-            reviews_count: 5
-          }
-        ]
+      {
+        name: 'Streetblox',
+        description:
+          'StreetBlox is a little game about a sliding puzzle with roads on it. Keep placing roads in front of your car and try to reach the exit!\n\nThere are 40 puzzles waiting to be solved, spread over 3 different worlds with their own unique puzzle pieces - like beacons, bridges and portals!',
+        platform: 'Google Play',
+        release_date: '2016-05-01',
+        reviews_count: 5
       }
-
-    });
-
-  </script>
+    ];
+  }
+}
+customElements.define(GamelisterSearch.is, GamelisterSearch);
+</script>
 
 </dom-module>

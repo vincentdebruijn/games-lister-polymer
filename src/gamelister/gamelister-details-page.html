@@ -41,50 +41,50 @@
   </template>
 
   <script>
+  class GamelisterDetailsPage extends Polymer.Element {
+  static get is() {
+    return 'gamelister-details-page';
+  }
 
-    Polymer({
-      is: 'gamelister-details-page',
-
-      properties: {
-
+  static get properties() {
+    return {
       routeData: {
         type: Object,
         observer: '_routeDataChanged'
       },
 
-       data: {
+      data: {
         type: Object
-       },
+      },
 
-       game: {
+      game: {
         type: String,
         notify: true
-       }
-       
-      },
-
-      _routeDataChanged: function(pageData, oldPageData) {
-        this.game = decodeURIComponent(pageData.game);
-
-   /*   fetch('/api/details/' + pageData.game)
-          .then(function (res) {
-            return res.json();
-          })
-          .then(function (data) {
-            this.set('data', data);
-          }.bind(this))*/
-        this.set('data', this._loadDummyData());
-      },
-
-      _loadDummyData: function() {
-        return {
-          pic: 'http://cdn.akamai.steamstatic.com/steam/apps/566700/header.jpg'
-        }
       }
+    };
+  }
 
-    });
+  _routeDataChanged(pageData, oldPageData) {
+    this.game = decodeURIComponent(pageData.game);
 
+    /*   fetch('/api/details/' + pageData.game)
+              .then(function (res) {
+                return res.json();
+              })
+              .then(function (data) {
+                this.set('data', data);
+              }.bind(this))*/
+    this.set('data', this._loadDummyData());
+  }
 
-  </script>
+  _loadDummyData() {
+    return {
+      pic: 'http://cdn.akamai.steamstatic.com/steam/apps/566700/header.jpg'
+    };
+  }
+}
+
+customElements.define(GamelisterDetailsPage.is, GamelisterDetailsPage);
+</script>
 
 </dom-module>

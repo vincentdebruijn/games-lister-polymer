@@ -31,16 +31,17 @@
   </template>
 
   <script>
+class GamelisterListPage extends Polymer.Element {
+  static get is() {
+    return 'gamelister-list-page';
+  }
 
-    Polymer({
-      is: 'gamelister-list-page',
-
-      ready: function() {
-        this.style.display = 'block';
-      }
-
-    });
-
-  </script>
+  ready() {
+    super.ready();
+    this.style.display = 'block';
+  }
+}
+customElements.define(GamelisterListPage.is, GamelisterListPage);
+</script>
 
 </dom-module>

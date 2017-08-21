@@ -21,19 +21,19 @@
         cursor: pointer;
       }
       :host .reviews-count {
-        display: inline-block; 
-        height: 64px; 
-        width: 64px; 
+        display: inline-block;
+        height: 64px;
+        width: 64px;
         border-radius: 50%;
-        background: #ddd; 
-        line-height: 64px; 
-        font-size: 30px; 
-        color: #555; 
+        background: #ddd;
+        line-height: 64px;
+        font-size: 30px;
+        color: #555;
         text-align: center;
       }
       :host .game-name {
-        font-size: 22px; 
-        margin: 16px 0; 
+        font-size: 22px;
+        margin: 16px 0;
         color: #212121;
       }
       :host .game-description {
@@ -46,32 +46,32 @@
   </template>
 
   <script>
+class GamelisterItem extends Polymer.Element {
+  static get is() {
+    return 'gamelister-item';
+  }
 
-    Polymer({
-      is: 'gamelister-item',
-
-      properties: {
-
-       data: {
+  static get properties() {
+    return {
+      data: {
         type: Object
-       },
-
-       route: {
+      },
+      route: {
         type: Object
-       }
-       
-      },
-
-      ready: function() {
-        this.addEventListener('click', e => this._showDetails(e));
-      },
-
-      _showDetails: function(e) {
-        this.set('route.path', '/details/' + encodeURIComponent(this.data.name));
       }
+    };
+  }
 
-    });
+  ready() {
+    super.ready();
+    this.addEventListener('click', e => this._showDetails(e));
+  }
 
-  </script>
+  _showDetails(e) {
+    this.set('route.path', '/details/' + encodeURIComponent(this.data.name));
+  }
+}
+customElements.define(GamelisterItem.is, GamelisterItem);
+</script>
 
 </dom-module>
